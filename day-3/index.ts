@@ -22,3 +22,45 @@ console.log({gamma, epsilon});
 
 const power = Number.parseInt(gamma, 2) * Number.parseInt(epsilon, 2);
 console.log({power});
+
+let filteredEntries = [...binaryNumbers];
+
+const filterFirstDigit = (values: string[], firstDigit: string, position: number): string[] => {
+  return values.filter(x => x.substring(position, position + 1) === firstDigit);
+}
+
+// Oxygen
+let position = 0;
+while (filteredEntries.length > 1) {
+  const zeroFiltered = filterFirstDigit(filteredEntries, '0', position);
+  const oneFiltered = filterFirstDigit(filteredEntries, '1', position);
+
+  if (oneFiltered.length < zeroFiltered.length) {
+    filteredEntries = zeroFiltered;
+  } else {
+    filteredEntries = oneFiltered;
+  }
+
+  position++;
+}
+const oxygenGenerator = Number.parseInt(filteredEntries[0], 2)
+
+// co2 scrubber
+position = 0;
+filteredEntries = [...binaryNumbers];
+while (filteredEntries.length > 1) {
+  const zeroFiltered = filterFirstDigit(filteredEntries, '0', position);
+  const oneFiltered = filterFirstDigit(filteredEntries, '1', position);
+
+  if (oneFiltered.length < zeroFiltered.length) {
+    filteredEntries = oneFiltered;
+  } else {
+    filteredEntries = zeroFiltered;
+  }
+
+  position++;
+}
+
+const co2scrubber = Number.parseInt(filteredEntries[0], 2)
+
+console.log({co2scrubber, oxygenGenerator, answer: co2scrubber * oxygenGenerator});
