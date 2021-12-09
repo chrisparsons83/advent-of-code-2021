@@ -1,4 +1,3 @@
-import { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } from 'constants';
 import * as fs from 'fs';
 
 type DisplayRow = {
