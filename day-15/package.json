@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@types/node": "^16.11.13",
+    "@types/node-dijkstra": "^2.5.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "node-dijkstra": "^2.5.0",
+    "ts-priority-queue": "^0.1.1"
+  }
+}
